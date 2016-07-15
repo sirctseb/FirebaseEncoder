@@ -1,0 +1,14 @@
+name: firebase_encode
+version: 0.0.0
+author: Christopher Best <bestchris@gmail.com>
+description: Encode strings to escape characters disallowed in Firebase keys
+homepage: https://github.com/sirctseb/FirebaseEncode
+environment:
+  sdk: '>=1.8.0 <2.0.0'
+documentation: http://sirctseb.github.io/FirebaseEncode
+dependencies:
+  firebase: ^0.6.3
+dev_dependencies:
+  test: ^0.12.4
+  logging: ^0.11.2
+  logging_handlers: ^0.8.0
