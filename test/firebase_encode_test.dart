@@ -21,6 +21,16 @@ main() {
     test(r'encodes %', () {
       expect(fbe.encode(r'a%a'), r'a%37a');
     });
+    test(r'encodes #', () {
+      expect(fbe.encode(r'a#a'), r'a%35a');
+    });
+
+    test(r'encodes % before $', () {
+      expect(fbe.encode(r'%$'), r'%37%36');
+    });
+    test(r'encodes $ before %', () {
+      expect(fbe.encode(r'$%'), r'%36%37');
+    });
 
     test(r'decodes .', () {
       expect(fbe.decode(r'a%46a'), r'a.a');
@@ -40,9 +50,12 @@ main() {
     test(r'decodes %', () {
       expect(fbe.decode(r'a%37a'), r'a%a');
     });
+    test(r'decoded #', () {
+      expect(fbe.decode(r'a%35a'), r'a#a');
+    });
 
     test('decode inverses encode', () {
-      var string = r'.$[]/%';
+      var string = r'.$[]/%#';
       expect(string, fbe.decode(fbe.encode(string)));
     });
   });

@@ -12,8 +12,9 @@ String decode(String key) {
     '%91': r'[',
     '%93': r']',
     '%47': r'/',
-    '%37': r'%'
+    '%37': r'%',
+    '%35': r'#'
   };
-  return key.replaceAllMapped(new RegExp(r'%46|%36|%91|%93|%47|%37'),
+  return key.replaceAllMapped(new RegExp(r'%35|%46|%36|%91|%93|%47|%37'),
       (match) => codeToChar[match.group(0)]);
 }
